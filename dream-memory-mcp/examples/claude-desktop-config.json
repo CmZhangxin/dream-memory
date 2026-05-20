@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "dream-memory": {
+      "command": "node",
+      "args": ["/Users/cmzhang/worker/job/workshop/dream-memory-mcp/dist/index.js"],
+      "env": {
+        "DREAM_GATEWAY_URL": "http://localhost:8420",
+        "MCP_CLIENT_NAME": "claude-desktop"
+      }
+    }
+  }
+}

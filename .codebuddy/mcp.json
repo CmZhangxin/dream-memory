@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "dream-memory": {
+      "command": "node",
+      "args": ["--import", "tsx", "src/index.ts", "--transport", "stdio", "--client-hint", "codebuddy"],
+      "cwd": "/Users/cmzhang/worker/job/dream-memory/dream-memory-mcp",
+      "env": {
+        "GATEWAY_URL": "http://localhost:8420",
+        "PATH": "/Users/cmzhang/.nvm/versions/node/v22.22.0/bin:/usr/local/bin:/usr/bin:/bin"
+      }
+    }
+  }
+}

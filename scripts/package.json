@@ -1,0 +1,31 @@
+{
+  "name": "@workshop/scripts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Stage 3a sync scripts: Obsidian Vault + CodeBuddy memory → Hermes Gateway",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "sync:vault": "tsx src/sync-vault.ts",
+    "sync:codebuddy": "tsx src/sync-codebuddy.ts",
+    "sync": "tsx src/daily-dream.ts"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "node-cron": "^3.0.3",
+    "yaml": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/node-cron": "^3.0.11",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=22.16"
+  }
+}

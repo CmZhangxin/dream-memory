@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "dream-memory": {
+      "command": "node",
+      "args": [
+        "/Users/cmzhang/worker/job/workshop/dream-memory-mcp/dist/index.js",
+        "--client-hint",
+        "claude"
+      ]
+    }
+  }
+}

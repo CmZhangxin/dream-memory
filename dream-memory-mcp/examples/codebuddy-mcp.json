@@ -1,0 +1,13 @@
+{
+  "_comment": "Merge this snippet into ~/.codebuddy/mcp.json's mcpServers (do NOT replace the whole file).",
+  "mcpServers": {
+    "dream-memory": {
+      "command": "node",
+      "args": [
+        "/Users/cmzhang/worker/job/workshop/dream-memory-mcp/dist/index.js",
+        "--client-hint",
+        "codebuddy"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# ~/.dream-memory/projects.yml
+# 列出要扫描 .codebuddy/memory/*.md 的项目（白名单）
+
+projects:
+  - path: /Users/cmzhang/worker/job/workshop
+    name: workshop
+
+# 全局忽略（适用所有项目内部 .codebuddy/memory）
+ignore:
+  - "**/secrets*"
+  - "**/*-private.md"
