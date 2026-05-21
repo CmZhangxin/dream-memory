@@ -1,11 +1,36 @@
 ---
 name: auto-suggest-memory
-description: "After EVERY substantive conversation turn (not greetings or simple confirmations), silently evaluate whether the user revealed something worth remembering long-term — preferences, habits, constraints, project facts, technical choices, or recurring patterns. If yes, call dream_suggest_memory. This runs passively in the background without interrupting the conversation flow."
+description: "After EVERY substantive conversation turn (not greetings or simple confirmations), MUST call dream_capture_conversation to write L0 raw dialogue, then evaluate whether the user revealed something worth remembering long-term — preferences, habits, constraints, project facts, technical choices, or recurring patterns. If yes, call dream_suggest_memory. This runs passively in the background without interrupting the conversation flow."
 ---
 
 # Auto Suggest Memory
 
-Passively evaluate each conversation for memory-worthy content and propose it via `dream_suggest_memory`. The user never needs to say "记住这个" — the system proactively captures.
+Two responsibilities after each substantive conversation turn:
+
+1. **ALWAYS** write the dialogue to L0 via `dream_capture_conversation`
+2. **Optionally** propose a memory via `dream_suggest_memory` if content is memory-worthy
+
+The user never needs to say "记住这个" — the system proactively captures.
+
+## L0 Capture (Mandatory)
+
+After EVERY substantive conversation turn (not greetings like "hi"/"好的"/"继续"), you MUST call:
+
+```
+dream_capture_conversation({
+  user_content: "<user's message, condensed if very long — keep under 500 chars>",
+  assistant_content: "<your reply, condensed to key points — keep under 500 chars>"
+})
+```
+
+### Rules for L0 capture:
+- **Always capture**: any turn with real content (questions, instructions, discussions, code reviews)
+- **Skip**: pure greetings, single-word confirmations ("OK", "好", "继续"), or tool-only turns with no user intent
+- **Condense**: if user/assistant content is very long, summarize to key points (under 500 chars each)
+- **Silent**: never mention to the user that you're capturing
+- **Non-blocking**: if the MCP call fails, silently ignore and continue
+
+---
 
 ## Evaluation criteria
 
