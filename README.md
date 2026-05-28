@@ -21,6 +21,32 @@
 
 - Node.js >= 22
 - [TencentDB-Agent-Memory](https://github.com/user/tdai-memory) 安装在 `~/.dream-memory/tdai-memory-openclaw-plugin/`
+- **LLM API Key**（必须，否则 L0→L1 升华会失败）
+
+### 配置 LLM（必读）
+
+在 `~/.dream-memory/tdai-memory-openclaw-plugin/tdai-gateway.yaml` 里配置 `llm` 段：
+
+```yaml
+memory:
+  embedding:
+    provider: openai
+    baseUrl: https://api.siliconflow.cn/v1
+    apiKey: sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    model: BAAI/bge-large-zh-v1.5
+    dimensions: 1024
+
+llm:
+  baseUrl: https://api.siliconflow.cn/v1
+  apiKey: sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  model: deepseek-ai/DeepSeek-V3
+  maxTokens: 4096
+  timeoutMs: 120000
+```
+
+> 也可通过环境变量 `TDAI_LLM_BASE_URL` / `TDAI_LLM_API_KEY` / `TDAI_LLM_MODEL` 覆盖。
+>
+> 推荐组合：[硅基流动 SiliconFlow](https://siliconflow.cn) + DeepSeek-V3（Embedding 和 LLM 共用一个 key）。
 
 ### 一键启动
 
