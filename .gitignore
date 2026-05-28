@@ -25,3 +25,4 @@ Thumbs.db
 
 # 构建缓存
 *.tsbuildinfo
+*.bak
